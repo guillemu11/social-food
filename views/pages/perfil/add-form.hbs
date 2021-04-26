@@ -1,0 +1,81 @@
+<div class="add-form-section">
+
+<div class="container">
+
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="restaurant"> <a href="#tab1"></a>Restaurantes</li>
+            <li class="recepies"> <a href="#tab2"></a>Recetas</li>
+        </ul>
+    <div class="row sections">
+        <div class="col-md-6" id="tab1">
+            <h1>Añadir restaurante</h1>
+            <hr>
+            
+            <form action="/restaurante/crear" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Nombre del restaurante</label>
+                    <input type="text" class="form-control" id="username" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="description">descripcion</label>
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Descripcion del restaurante" name="msg"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagen</label>
+                    <input type="file" class="form-control-file" id="image" name="userImage">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Subir</button>
+                {{#if errorMessage}}
+                <div id="error">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+            </form>
+        </div>
+        <div class="col-md-6" id="tab2">
+
+            <h1>Añadir receta</h1>
+            <hr>
+
+            <form action="/recetas/crear" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="username">Nombre de la receta</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="description">descripcion</label>
+                    <textarea class="form-control" id="msn" rows="2" placeholder="Descripcion corta" name="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="method">¿Como se hace?</label>
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Aquí los pasos de la receta" name="method"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ingredients">Ingredientes</label>
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Los ingredientes que usaremos..." name="ingredients"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagen</label>
+                    <input type="file" class="form-control-file" id="image" name="image">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">Subir</button>
+                {{#if errorMessage}}
+                <div id="error">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+            </form>
+
+        </div>
+    </div>
+
+
+
+    </div>
+
+
+</div>
+    
+</div>

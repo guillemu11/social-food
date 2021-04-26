@@ -1,0 +1,71 @@
+<section class="container justify-content-center">
+    <h1>OUR RECOMMENDATIONS</h1>
+</section>
+
+<section class="container index">
+  <div class="row index-img">
+        <div class="col-4">
+            <a href="#" ><img class="" src="/img/restaurante.png" alt=""></a>
+            <hr>
+            <a href="#"><h2>NUESTRA RECOMENDACIÓN DE RESTAURANTES</h2></a>
+        </div>
+         <div class="col-8">
+            <a href="#"><img class="" src="/img/Captura de pantalla 2021-04-25 a las 14.14.04.png" alt=""></a>
+            <hr>
+            <a href="#"><h2 class="justify-content-end">ÚLTIMAS RECETAS</h2></a>
+
+        </div>
+    </div>
+    
+ </section>
+
+ <section class="container our-community">
+     <h1>COMMUNITY </h1>
+     <div class="row">
+        <div class="col-3">
+            <a href="/registro"><img class="" src="/img/food-community-1.png" alt=""></a>
+            <hr>
+            <a href="#">
+                <h2>NUESTRA RECOMENDACIÓN DE RESTAURANTES</h2>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#"><img class="" src="/img/food-community-2.png" alt=""></a>
+            <hr>
+            <a href="#">
+                <h2>NUESTRA RECOMENDACIÓN DE RESTAURANTES</h2>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#"><img class="" src="/img/food-community-3.png" alt=""></a>
+            <hr>
+            <a href="#">
+                <h2>NUESTRA RECOMENDACIÓN DE RESTAURANTES</h2>
+            </a>
+        </div>
+        <div class="col-3">
+            <a href="#"><img class="" src="/img/food-community-4.png" alt=""></a>
+            <hr>
+            <a href="#">
+                <h2>NUESTRA RECOMENDACIÓN DE RESTAURANTES</h2>
+            </a>
+        </div>
+     </div>
+
+    <hr>
+ </section>
+
+<section>
+
+    {{#each allRecepiesPost}}
+    <h1> Receta: {{name}}</h1>
+    <figure>
+        <img src="{{image}}" alt="{{description}}">
+    </figure>
+    <p>{{descripcion}}</p>
+    <p>{{method}}</p>
+
+    {{/each}}
+
+
+</section>

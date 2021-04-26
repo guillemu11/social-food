@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+.navbar {
+  margin-bottom: 50px;
+}
+#error {
+  background-color: rgb(255, 90, 90);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+.index-img img{
+  width: 100%;
+  height: 70%;
+}
+h2{
+  font-size: 14px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.our-community img{
+  width: 100%;
+  height: 70%;
+}
+
+section{
+  margin-top: 0px;
+}
+.profile-img{
+  width: 100%;
+  height: 50%;
+}
+ul.tabs{
+  display: flex;
+  width: 100%;
+  list-style: none;
+  justify-content: space-around;
+  background: #000000;
+  color: white;
+  padding: 20px;
+}
+.active{
+  background: #0984cc;
+}
+.add-form-section{
+  background-color: rgb(5, 214, 204);
+}
+
+.wrap{
+  background-color: white;
+ 
+}
+
+.sections{
+  padding: 30px;
+}
