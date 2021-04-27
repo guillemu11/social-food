@@ -3,4 +3,8 @@ Restaurants and recipes
 
 
 Route	HTTP Verb	Description
-/celebrities	GET	Show all celebrities
+
+
+| Route          | HTTP Verb | Description          |
+| -------------- | --------- | -------------------- |
+| `/celebrities` | GET       | Show all celebrities |
