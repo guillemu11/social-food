@@ -7,8 +7,15 @@ const restaurantPostSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    location: {             
+        type: {
+            type: String
+        },
+        coordinates: [Number]
+    },
     name: String,
     description: String,
+    cuisine: String,
     image: String
 }, {
     timestamps: true

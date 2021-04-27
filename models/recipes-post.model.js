@@ -9,24 +9,24 @@ const recipesSchema = new Schema({
     },
     name: String,
     description: String,
-    method: [{
+    steps: [{
         time: Number,
-        steps: [String],
+        text: String,
         cookware: [String]
     }],
-    ingredients: {
+    ingredients: [{
         weight:{
             measurement: Number,
-            system: [String]
+            system: String
         },
-        food: [String],
-        ingredientsImage: [String]
-    },
-    image: [String]
+        food: String,
+        ingredientsImage: String
+    }],
+    images: [String]
 }, {
     timestamps: true
 })
 
 const Recipes = mongoose.model("Recipes", recipesSchema)
 
-module.exports = Recepies
+module.exports = Recipes
