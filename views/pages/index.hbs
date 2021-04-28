@@ -70,12 +70,12 @@
 
 <section class="container">
     {{#each restaurantes}}
-    <a href="#">
-        <h1>hola{{author.0.username}}</h1>
+    <a href="/publicacion/perfil">
+        <h1>{{author.username}}</h1>
     </a>
     <div class="row">
         <h2>{{name}}</h2>
-        <a href="/details/{{id}}">
+        <a href="/restaurante/details/{{id}}">
             <figure>
                 <img src="{{image}}" alt="restaurants photo">
             </figure>
@@ -88,7 +88,7 @@
 </section>
 
 <section>
- 
+
     {{#each allRecipesPost}}
     <h1> Receta: {{name}}</h1>
     <figure>
@@ -98,7 +98,7 @@
     <p>{{method}}</p>
     {{/each}}
 
-  
+
 
 
 </section>

@@ -11,18 +11,18 @@ const { checkMongooseError } = require('./../utils')
 
 router.get('/registro', (req, res) => res.render('pages/auth/signup'))
 
-router.post('/registro', (req, res) =>{
+router.post('/registro', (req, res) => {
 
-    const {username, pwd, pwd2} = req.body
+    const { username, pwd, pwd2 } = req.body
 
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(pwd, salt)
     const hashPass2 = bcrypt.hashSync(pwd2, salt)
 
     User
-        .create({ username, password: hashPass, password2: hashPass2})
-        .then(() =>{
-            if (password === password2 ){
+        .create({ username, password: hashPass, password2: hashPass2 })
+        .then(() => {
+            if (password === password2) {
                 res.redirect('/')
             }
         })
@@ -36,16 +36,16 @@ router.get('/inicio-sesion', (req, res) => res.render('pages/auth/login'))
 
 router.post('/inicio-sesion', (req, res) => {
 
-    const { username, pwd} = req.body
+    const { username, pwd } = req.body
 
     User
-        .findOne({username})
-        .then( user =>{
+        .findOne({ username })
+        .then(user => {
 
-            if(!user){
-                res.render('pages/auth/login', {errorMessage: 'usuario no reconocido'})
+            if (!user) {
+                res.render('pages/auth/login', { errorMessage: 'usuario no reconocido' })
             }
-            if(bcrypt.compare(pwd, user.password) === false){
+            if (bcrypt.compare(pwd, user.password) === false) {
 
                 res.render('pages/auth/login', { errorMessage: 'contraseña no reconocido' })
             }
