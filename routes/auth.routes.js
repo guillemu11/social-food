@@ -17,7 +17,7 @@ router.post('/registro', (req, res) => {
 
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(pwd, salt)
-    const hashPass2 = bcrypt.hashSync(pwd2, salt)
+
 
     User
         .create({ username, password: hashPass, password2: hashPass2 })

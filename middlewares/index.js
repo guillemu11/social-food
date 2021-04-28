@@ -16,5 +16,5 @@ module.exports = {
             res.render('pages/auth/login', { errorMessage: 'Desautorizado' })
             
         }
-    }
+    },
 }
