@@ -12,7 +12,7 @@ const { checkRoles, isLoggedIn } = require('./../middlewares')
 
 router.get('/crear', isLoggedIn, checkRoles('USER'), (req, res) => res.redirect('/'))
 
-router.post('/crear', CDNupload.single('userImage'), isLoggedIn, checkRoles('USER'), (req, res) => {
+router.post('/crear', CDNupload.single('userImage'), (req, res) => {
 
     const { description, name } = req.body
     const  image  = req.file.path

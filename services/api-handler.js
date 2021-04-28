@@ -9,9 +9,10 @@ class SpoonacularApp {
         })
     }
     randomRecipes = () => this.api.get(`/random?apiKey=${this.apiKey}`)
-    searchRecipes = (cuisine, diet) => {
-        this.api.get(`/complexSearch?apiKey=${this.apiKey}`)
+    searchRecipes = () => {
+       return this.api.get(`/complexSearch?apiKey=${this.apiKey}`)
     }
+    searchRecipesByCuisine = (cuisine) => this.api.get(`/complexSearch?apiKey=${this.apiKey}?cuisine=${cuisine}`)
 }
 new SpoonacularApp()
 module.exports = SpoonacularApp

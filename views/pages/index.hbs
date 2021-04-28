@@ -26,7 +26,7 @@
         </div>
          <div class="col-6 ">
              <div class="">
-            <a href="/api/recetas/random"><img class="big-img" src="/img/restaurante.png" alt="" ></a>
+            <a href="/recetas"><img class="big-img" src="/img/restaurante.png" alt="" ></a>
 
              </div>
             <div class="small-center-img">
@@ -69,16 +69,17 @@
 </section>
 
 <section>
-
-    {{#each allRecepiesPost}}
+ 
+    {{#each allRecipesPost}}
     <h1> Receta: {{name}}</h1>
     <figure>
         <img src="{{image}}" alt="{{description}}">
     </figure>
     <p>{{descripcion}}</p>
     <p>{{method}}</p>
-
     {{/each}}
+
+  
 
 
 </section>
@@ -87,3 +88,84 @@
 <script>
      new Glide('.glide').mount()
 </script>
+
+
+
+
+
+<div class="form-group">
+    <label for="method">¿Como se hace?
+    </label>
+    <div class="row">
+        <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                    aria-controls="v-pills-home" aria-selected="true">Paso 1</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                    aria-controls="v-pills-profile" aria-selected="false">Paso 2</a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                    aria-controls="v-pills-messages" aria-selected="false">Paso 3</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                    aria-controls="v-pills-settings" aria-selected="false">Paso 4</a>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Aquí los pasos de la receta"
+                        name="method"></textarea>
+                    <p>
+                    <div class="form-group">
+                        <label for="description">descripcion</label>
+                        <textarea class="form-control" id="msn" rows="2"
+                            placeholder="Utensiolios que necesitaras en este paso" name="description"></textarea>
+                    </div>
+                    <label for="input-time">Tiempo por paso</label>
+                    <input id="input-time" type="time" value="00:00:01">
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Aquí los pasos de la receta"
+                        name="method"></textarea>
+                    <p>
+                    <div class="form-group">
+                        <label for="description">descripcion</label>
+                        <textarea class="form-control" id="msn" rows="2"
+                            placeholder="Utensiolios que necesitaras en este paso" name="description"></textarea>
+                    </div>
+                    <label for="input-time">Tiempo por paso</label>
+                    <input id="input-time" type="time" value="00:00:01">
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Aquí los pasos de la receta"
+                        name="method"></textarea>
+                    <p>
+                    <div class="form-group">
+                        <label for="description">descripcion</label>
+                        <textarea class="form-control" id="msn" rows="2"
+                            placeholder="Utensiolios que necesitaras en este paso" name="description"></textarea>
+                    </div>
+                    <label for="input-time">Tiempo por paso</label>
+                    <input id="input-time" type="time" value="00:00:01">
+                </div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <textarea class="form-control" id="msn" rows="3" placeholder="Aquí los pasos de la receta"
+                        name="method"></textarea>
+                    <p>
+                    <div class="form-group">
+                        <label for="description">descripcion</label>
+                        <textarea class="form-control" id="msn" rows="2"
+                            placeholder="Utensiolios que necesitaras en este paso" name="description"></textarea>
+                    </div>
+                    <label for="input-time">Tiempo total</label>
+                    <input id="input-time" type="time" value="00:00:01">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <label for="input-time">tiempo total</label>
+    <input id="input-time" type="time" value="00:00:01">
+    </p>
+    <p>
+</div>
