@@ -2,12 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-const restaurantPostSchema = new Schema ({
-    author: {
+const restaurantPostSchema = new Schema({
+    author: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    location: {             
+    }],
+    location: {
         type: {
             type: String
         },
@@ -15,8 +15,8 @@ const restaurantPostSchema = new Schema ({
     },
     name: String,
     description: String,
-    cuisine: String,
-    image: String
+    cuisine: String, //añadir enum
+    image: [String]
 }, {
     timestamps: true
 })

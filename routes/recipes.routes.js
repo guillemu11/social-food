@@ -4,21 +4,24 @@ const router = express.Router()
 const Recipes = require('./../models/recipes-post.model')
 
 const { CDNupload } = require('../config/file-upload.config')
+const { response } = require('express')
 
 
 // const { checkRoles, isLoggedIn } = require('./../middlewares')
 
-router.post('/crear', CDNupload.single('image'), (req, res) =>{
+router.post('/crear', CDNupload.single('image'), (req, res) => {
 
     const images = req.file.path
-    
+
     // res.send(req.file)
     // console.log(req.file)
-    const { name, description, method, ingredients} = req.body
+    const { name, description, steps, ingredients } = req.body
 
     Recipes
-        .create({name, description, method, ingredients, images})
-        .then(()=> res.redirect('/'))
+        .create({ name, description, steps, ingredients, images })
+        .then(newFood => {
+            console.log(newFood)
+            res.redirect('/')})
         .catch(err => console.log('ERRROOOOOOOOOR', err))
 })
 

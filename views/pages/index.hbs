@@ -16,35 +16,35 @@
 
 
 <section class="container index">
-  <div class="row index-img">
+    <div class="row index-img">
         <div class="col-3 wings-img">
-            <a href="/api/recetas/buscar" ><img class="" src="/img/food-community-4.png" alt=""></a>
+            <a href="/api/recetas/buscar"><img class="" src="/img/food-community-4.png" alt=""></a>
             <a href="/api/recetas/random"><img class="bottom-img" src="/img/food-community-1.png" alt=""></a>
         </div>
         <div>
 
         </div>
-         <div class="col-6 ">
-             <div class="">
-            <a href="/api/recetas/random"><img class="big-img" src="/img/restaurante.png" alt="" ></a>
+        <div class="col-6 ">
+            <div class="">
+                <a href="/restaurante/lista"><img class="big-img" src="/img/restaurante.png" alt=""></a>
 
-             </div>
+            </div>
             <div class="small-center-img">
 
-            <a href="#"><img class="small-img" src="/img/alitas.png" alt=""></a>
+                <a href="#"><img class="small-img" src="/img/alitas.png" alt=""></a>
             </div>
         </div>
         <div class="col-3 wings-img">
             <a href="/registro"><img class="" src="/img/food-community-2.png" alt=""></a>
             <div>
 
-            <a href="#"><img class="bottom-img" src="/img/food-community-3.png" alt=""></a>
+                <a href="#"><img class="bottom-img" src="/img/food-community-3.png" alt=""></a>
             </div>
-            
+
         </div>
     </div>
-    
- </section>
+
+</section>
 <hr>
 <section class="container">
     <div class="container justify-content-between box2">
@@ -68,7 +68,32 @@
     </div>
 </section>
 
+<section class="container">
+    {{#each restaurantes}}
+    <a href="#">
+        <h1>hola{{author.0.username}}</h1>
+    </a>
+    <div class="row">
+        <h2>{{name}}</h2>
+        <a href="/details/{{id}}">
+            <figure>
+                <img src="{{image}}" alt="restaurants photo">
+            </figure>
+        </a>
+        <p><strong>Descripción: </strong>{{description}}</p>
+    </div>
+    {{/each}}
+
+
+</section>
+
 <section>
+
+
+
+
+
+
 
     {{#each allRecepiesPost}}
     <h1> Receta: {{name}}</h1>
@@ -85,5 +110,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>
-     new Glide('.glide').mount()
+    new Glide('.glide').mount()
 </script>
