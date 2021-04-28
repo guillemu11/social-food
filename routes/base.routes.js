@@ -20,8 +20,8 @@ router.get('/', (req, res) => {
     Promise.all([restaurantes, recetas])
         .then(resultado => {
             res.render('pages/index', { restaurantes: resultado[0], recetas: resultado[1] })
-                .catch(err => console.log('Error!!!', err))
         })
+        .catch(err => console.log('Error!!!', err))
 
 })
 

@@ -13,18 +13,16 @@ router.get('/registro', (req, res) => res.render('pages/auth/signup'))
 
 router.post('/registro', (req, res) =>{
 
-    const {username, pwd, pwd2} = req.body
+    const {username, pwd} = req.body
 
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(pwd, salt)
-    const hashPass2 = bcrypt.hashSync(pwd2, salt)
+
 
     User
-        .create({ username, password: hashPass, password2: hashPass2})
+        .create({ username, password: hashPass})
         .then(() =>{
-            if (password === password2 ){
-                res.redirect('/')
-            }
+                res.redirect('/')   
         })
         .catch(err => res.render('pages/auth/signup', { errorMessage: checkMongooseError(err) }))
 

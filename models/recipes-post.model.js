@@ -10,20 +10,20 @@ const recipesSchema = new Schema({
     name: String,
     description: String,
     steps: [{
-        time: Number,
+        time: String,
         text: String,
-        cookware: [String]
+        cookware: String
     }],
-    ingredients: [{
-        weight:{
-            measurement: Number,
-            system: String
-        },
-        food: String,
-        ingredientsImage: String
-    }],
-    totalTime: Number,
-    images: [String]
+    ingredients: String,
+    // [{
+    //     weight:{
+    //         measurement: Number,
+    //         system: String
+    //     },
+    //     food: String,
+    //     ingredientsImage: String
+    // }],
+    image: [String]
 }, {
     timestamps: true
 })

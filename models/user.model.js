@@ -11,10 +11,6 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'La contraseña es obligatoria']
     },
-    password2: {
-        type: String,
-        required: [true, 'La contraseña no coincide']
-    },
     role: {
         type: String,
         enum: ['USER', 'ADMIN'],
