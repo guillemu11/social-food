@@ -42,6 +42,8 @@ ul.tabs {
   background: #0984cc; }
 
 .add-form-section {
+  display: flex;
+  justify-content: center;
   background-color: #05d6cc; }
 
 .wings-img {

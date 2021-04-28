@@ -12,6 +12,7 @@ class SpoonacularApp {
     searchRecipes = (cuisine, diet) => {
         return this.api.get(`/complexSearch?apiKey=${this.apiKey}`)
     }
+    searchRecipesByCuisine = (cuisine) => this.api.get(`/complexSearch?apiKey=${this.apiKey}?cuisine=${cuisine}`)
 }
 new SpoonacularApp()
 module.exports = SpoonacularApp

@@ -21,17 +21,23 @@ router.get('/random', (req, res) => {
 })
 
 router.get('/buscar', (req, res) =>{
-
-   
+    const {cuisine} = req.body
+    
     RecipeApi
-        .searchRecipes()
+        .searchRecipes(cuisine)
         .then(response =>{
-            console.log('-----------------', response)
+            const { data } = response
+            res.render('pages/perfil/search-recipes', {data})
         })
         .catch(err => console.log('error', err))
-
-
 })
+
+// router.get('/buscar/filtrar', (req, res) =>{
+
+//     RecipeApi
+//         .searchRecipesByCuisine()
+//         .then(response => console.log(response))
+// })
 
 
 

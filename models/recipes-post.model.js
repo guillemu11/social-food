@@ -22,6 +22,7 @@ const recipesSchema = new Schema({
         food: String,
         ingredientsImage: String
     }],
+    totalTime: Number,
     images: [String]
 }, {
     timestamps: true
