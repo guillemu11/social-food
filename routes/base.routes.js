@@ -13,7 +13,7 @@ const User = require('./../models/user.model')
 //draw Recipes created by the users
 
 router.get('/', (req, res, next) => {
-    const restaurantes = Restaurant.find({ author: req.session.currentUser }).populate('author')
+    const restaurantes = Restaurant.find().populate('author')
 
     const recetas = Recipes.find().populate('author')
 

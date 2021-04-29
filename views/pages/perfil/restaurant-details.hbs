@@ -3,26 +3,27 @@
     <h1 style="font-weight: 100">Nombre del restaurante: {{name}}</h1>
 
     <h4>Descripción</h4>
-    <p>{{description}}</p>
+    <p>{{restaurantInfo.description}}</p>
 
-
+    {{#if isUser}}
     <button>
-        <a href="/restaurante/editar/{{id}}">Editar post</a>
+        <a href="/restaurante/editar?restaurante_id={{restaurantInfo.id}}">Editar post</a>
     </button>
-    <form action="/restaurante/deletar/{{id}}" method="POST">
+    <form action="/restaurante/borrar/{{restaurantInfo.id}}" method="POST">
         <button>
             <a>Deletar post</a>
         </button>
     </form>
+    {{/if}}
 
     <hr>
 
     <h5>Sobre el restaurante</h5>
     <figure>
-        <img src="{{image}}" alt="Restaurant image">
+        <img src="{{restaurantInfo.image}}" alt="Restaurant image">
     </figure>
 
-    <p><strong>Tipo</strong>: {{cuisine}}</p>
+    <p><strong>Tipo</strong>: {{restaurantInfo.cuisine}}</p>
 
     <a href="/" class="btn btn-dark">Volver</a>
 

@@ -12,7 +12,8 @@
                     <h1>Editar restaurante</h1>
                     <hr>
 
-                    <form action="/restaurante/editar/{{id}}" method="POST">
+                    <form action="/restaurante/editar/{{id}}" method="POST"
+                        enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="name">Nombre del restaurante</label>
                             <input type="text" class="form-control" id="username" name="name" value="{{name}}">

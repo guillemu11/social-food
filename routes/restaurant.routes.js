@@ -6,6 +6,8 @@ const User = require('./../models/user.model')
 const { CDNupload } = require('../config/file-upload.config')
 
 const { checkRoles, isLoggedIn } = require('./../middlewares')
+
+const { isUser } = require('./../utils')
 // const { response } = require('express')
 
 
@@ -31,20 +33,17 @@ router.post('/crear', CDNupload.single('image'), (req, res) => {
 router.get('/details/:restaurante_id', (req, res) => {
 
     const { restaurante_id } = req.params
+    const { currentUser } = req.session
 
     Restaurant
         .findById(restaurante_id)
-        .then(restaurantInfo => res.render('pages/perfil/restaurant-details', restaurantInfo))
+        .then(restaurantInfo => res.render('pages/perfil/restaurant-details', { restaurantInfo, isUser: isUser(currentUser) }))
         .catch(err => console.log('Error!!!', err))
 })
 
+router.get('/editar', (req, res) => {
 
-
-
-
-router.get('/editar/:restaurante_id', (req, res) => {
-
-    const { restaurante_id } = req.params
+    const { restaurante_id } = req.query
 
     Restaurant
         .findById(restaurante_id)
@@ -54,10 +53,7 @@ router.get('/editar/:restaurante_id', (req, res) => {
 })
 
 
-
-
-
-router.post('/editar/:restaurante_id', checkRoles('USER', 'ADMIN'), CDNupload.single('image'), (req, res) => {
+router.post('/editar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), CDNupload.single('image'), (req, res) => {
 
     console.log(req.params)
     console.log('-----', req.body)
@@ -78,7 +74,7 @@ router.post('/editar/:restaurante_id', checkRoles('USER', 'ADMIN'), CDNupload.si
 
 
 
-router.post('/deletar/:restaurante_id', checkRoles('USER', 'ADMIN'), (req, res) => {
+router.post('/borrar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res) => {
 
     const { restaurante_id } = req.params
 

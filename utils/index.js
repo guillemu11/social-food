@@ -10,5 +10,6 @@ module.exports = {
         } else if (err.code === 11000) {
             return `Usuario ya registrado`
         }
-    }
+    },
+    isUser: user => user?.role === 'USER'
 }
