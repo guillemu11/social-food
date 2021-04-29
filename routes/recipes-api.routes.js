@@ -12,7 +12,7 @@ router.get('/random', (req, res) => {
         .randomRecipes()
         .then(response => {
             const {data} = response
-            console.log(data)
+       
            res.render('pages/perfil/random-recipe', data)
              })
 
@@ -22,12 +22,44 @@ router.get('/random', (req, res) => {
 
 router.get('/buscar', (req, res) =>{
     
+    const { cuisine } =  req.query
+
     RecipeApi
-        .searchRecipes(req.query.cuisine)
+        .searchRecipesByCuisine(cuisine)
         .then(response =>{
             const { data } = response
-            res.render('pages/perfil/search-recipes', {data})
+            res.render('pages/api-recipes/search-recipes', {data})
+            
         })
+        .catch(err => console.log('error', err))
+})
+
+
+
+router.get('/tipos', (req, res) => {
+
+    const { type } = req.query
+
+    RecipeApi
+        .searchRecipesByType( type )
+        .then(response => {
+            const { data } = response
+            res.render('pages/api-recipes/search-type',  {data} )
+            
+        })
+        .catch(err => console.log('error', err))
+})
+
+router.get('/', (req, res) => {
+
+    const { id, title } = req.query
+
+    RecipeApi
+        .recipeInformation( id )
+        .then( apiInfo => {
+            console.log('-------Api Infoooooo',apiInfo.data[0].steps[0])
+            res.render('pages/api-recipes/recipe-info', {apiInfo: apiInfo.data, title})
+            })
         .catch(err => console.log('error', err))
 })
 

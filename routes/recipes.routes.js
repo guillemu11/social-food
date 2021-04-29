@@ -6,14 +6,9 @@ const Recipes = require('./../models/recipes-post.model')
 const { CDNupload } = require('../config/file-upload.config')
 const { response } = require('express')
 
-<<<<<<< HEAD
-const { checkRoles, isLoggedIn } = require('./../middlewares')
-=======
-
 const { checkRoles, isLoggedIn } = require('./../middlewares')
 const { isUser } = require('./../utils')
 
->>>>>>> 25b7aa95fc14bf56ae58b43a928558231c9e52b0
 
 router.post('/crear', isLoggedIn, CDNupload.single('image'), (req, res) => {
 

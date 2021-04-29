@@ -9,6 +9,7 @@ const { CDNupload } = require('./../config/file-upload.config')
 
 const { checkRoles, isLoggedIn } = require('./../middlewares')
 const { isUser } = require('./../utils')
+const { response } = require('express')
 
 router.get('/', isLoggedIn, checkRoles('USER'), (req, res) => res.render('pages/perfil/add-form'))
 
@@ -128,9 +129,12 @@ router.get('/recetas/editar/:recipes_id', (req, res) => {
 
     Recipes
         .findById(recipes_id)
-        .then(() => res.render('pages/recipes/edit-recipes'))
+        .then(response => res.render('pages/recipes/edit-recipes', response))
         .catch(err => console.log('erroooooor', err))
 })
+
+
+
 
 router.post('/recetas/editar/:id', (req, res) => {
 
@@ -141,7 +145,7 @@ router.post('/recetas/editar/:id', (req, res) => {
     console.log('soy el bodyyyyyyyyyyyyyyyyy', req.body)
     console.log('soyyyyyyyyyyyyyyyyyyyyyyyy el paramssss', req.params)
     console.log('soy la imagennnnnnnnnn', req.file)
-    res.send(req.body)
+    
     let steps = []
     for (let i = 0; i < 4; i++) {
         let obj = {}
