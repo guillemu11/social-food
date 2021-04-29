@@ -1,15 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-
 const recipesSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
     name: {
-       type: String,
-       require: [true, 'Es obligatorio ponerle un nombre a la receta']
+        type: String,
+        require: [true, 'Es obligatorio ponerle un nombre a la receta']
     },
     description: String,
     steps: [{
@@ -18,7 +17,7 @@ const recipesSchema = new Schema({
         cookware: String
     }],
     ingredients: {
-       type: String,
+        type: String,
     },
     image: [String]
 }, {

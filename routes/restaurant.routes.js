@@ -2,17 +2,12 @@ const express = require('express')
 const router = express.Router()
 
 const Restaurant = require('./../models/restaurant-post.model')
-const User = require('./../models/user.model')
+
 const { CDNupload } = require('../config/file-upload.config')
 
 const { checkRoles, isLoggedIn } = require('./../middlewares')
 
-const { isUser } = require('./../utils')
-// const { response } = require('express')
-
-
-
-// router.get('/crear', isLoggedIn, checkRoles('USER'), (req, res) => res.redirect('/'))
+const { isUser, isAdmin } = require('./../utils')
 
 router.post('/crear', CDNupload.single('image'), (req, res) => {
 
@@ -37,7 +32,7 @@ router.get('/details/:restaurante_id', (req, res) => {
 
     Restaurant
         .findById(restaurante_id)
-        .then(restaurantInfo => res.render('pages/perfil/restaurant-details', { restaurantInfo, isUser: isUser(currentUser) }))
+        .then(restaurantInfo => res.render('pages/perfil/restaurant-details', { restaurantInfo, isUser: isUser(currentUser), isAdmin: isAdmin(currentUser) }))
         .catch(err => console.log('Error!!!', err))
 })
 
@@ -52,27 +47,17 @@ router.get('/editar', (req, res) => {
         .catch(err => console.log('Error!!!', err))
 })
 
-
 router.post('/editar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), CDNupload.single('image'), (req, res) => {
 
-    console.log(req.params)
-    console.log('-----', req.body)
-
     const image = req.file.path
-    console.log('--- imagem -----', req.file.path)
     const { restaurante_id } = req.params
     const { location, name, description, cuisine } = req.body
-
 
     Restaurant
         .findByIdAndUpdate(restaurante_id, { location, name, description, cuisine, image })
         .then(() => res.redirect('/'))
         .catch(err => console.log('Error!', err))
 })
-
-
-
-
 
 router.post('/borrar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res) => {
 
@@ -84,13 +69,12 @@ router.post('/borrar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), 
         .catch(err => console.log('Error!', err))
 })
 
+router.get('/lista', (req, res) => {
 
-router.get('/lista', (req, res) =>{
-    
     Restaurant
-    .find()
-    .then(theRestaurants => res.render('pages/restaurants/restaurant-list', {theRestaurants}))
-    .catch(err => console.log('erroooooor', err))
+        .find()
+        .then(theRestaurants => res.render('pages/restaurants/restaurant-list', { theRestaurants }))
+        .catch(err => console.log('erroooooor', err))
 })
 
 module.exports = router

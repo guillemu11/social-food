@@ -16,6 +16,17 @@
     </form>
     {{/if}}
 
+    {{#if isAdmin}}
+    <button>
+        <a href="/restaurante/editar?restaurante_id={{restaurantInfo.id}}">Editar post</a>
+    </button>
+    <form action="/restaurante/borrar/{{restaurantInfo.id}}" method="POST">
+        <button>
+            <a>Deletar post</a>
+        </button>
+    </form>
+    {{/if}}
+
     <hr>
 
     <h5>Sobre el restaurante</h5>

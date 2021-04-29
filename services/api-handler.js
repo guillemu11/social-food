@@ -2,7 +2,6 @@ const axios = require('axios')
 
 class SpoonacularApp {
     constructor() {
-
         this.apiKey = '54362f27bf61476e95d0f5988211fbfd'
         this.api = axios.create({
             baseURL: `https://api.spoonacular.com/recipes`,

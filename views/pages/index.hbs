@@ -72,34 +72,36 @@
     <div class="row">
         <div class="col-6">
             {{#each allRestaurants}}
-                <a href="/publicacion/perfil/{{author._id}}"><h1>{{author.username}}</h1> </a>
-                <h2>{{name}}</h2>
-                <a href="/restaurante/details/{{id}}">
-                    <figure>
-                    <img src="{{image}}" alt="restaurants photo">
-                    </figure>
-                </a>
-                <p><strong>Descripción: </strong>{{description}}</p>
-            {{/each}}
-            </div>
-        </div>
-        <div class="col-6">
-            {{#each allRecipes}}
             <a href="/publicacion/perfil/{{author._id}}">
                 <h1>{{author.username}}</h1>
             </a>
             <h2>{{name}}</h2>
-            <a href="/recetas/detalles/{{id}}">
+            <a href="/restaurante/details/{{id}}">
                 <figure>
                     <img src="{{image}}" alt="restaurants photo">
                 </figure>
             </a>
-            <p>{{description}}</p>
-            <p>{{ingredients}}</p>
             <p><strong>Descripción: </strong>{{description}}</p>
-        {{/each}}
+            {{/each}}
         </div>
-     </div>
+    </div>
+    <div class="col-6">
+        {{#each allRecipes}}
+        <a href="/publicacion/perfil/{{author._id}}">
+            <h1>{{author.username}}</h1>
+        </a>
+        <h2>{{name}}</h2>
+        <a href="/recetas/detalles/{{id}}">
+            <figure>
+                <img src="{{image}}" alt="restaurants photo">
+            </figure>
+        </a>
+        <p>{{description}}</p>
+        <p>{{ingredients}}</p>
+        <p><strong>Descripción: </strong>{{description}}</p>
+        {{/each}}
+    </div>
+    </div>
 
     </div>
 

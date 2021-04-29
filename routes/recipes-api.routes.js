@@ -39,6 +39,4 @@ router.get('/buscar', (req, res) =>{
 //         .then(response => console.log(response))
 // })
 
-
-
 module.exports = router

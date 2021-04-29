@@ -8,24 +8,23 @@ const User = require('./../models/user.model')
 
 const { checkMongooseError } = require('./../utils')
 
-
 router.get('/registro', (req, res) => res.render('pages/auth/signup'))
 
 router.post('/registro', (req, res) => {
     const { username, pwd, pwd2 } = req.body
-    
+
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(pwd, salt)
-    
-    if(pwd != pwd2){
+
+    if (pwd != pwd2) {
         res.redirect('/registro')
     }
-    
+
     User
-    .create({ username, password: hashPass})
-    .then(() => res.redirect('/'))
-    .catch(err => res.render('pages/auth/signup', { errorMessage: checkMongooseError(err) }))
-    
+        .create({ username, password: hashPass })
+        .then(() => res.redirect('/'))
+        .catch(err => res.render('pages/auth/signup', { errorMessage: checkMongooseError(err) }))
+
 })
 
 

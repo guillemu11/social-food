@@ -7,9 +7,7 @@ const Recipes = require('./../models/recipes-post.model')
 
 const { CDNupload } = require('./../config/file-upload.config')
 
-
 const { checkRoles, isLoggedIn } = require('./../middlewares')
-
 
 router.get('/', isLoggedIn, checkRoles('USER'), (req, res) => res.render('pages/perfil/add-form'))
 
@@ -17,7 +15,7 @@ router.get('/perfil/:id', (req, res) => {
 
     const userName = User.findById(req.params.id)
     const userRestaurant = Restaurant.find({ author: req.params.id })
-    const userRecipe = Recipes.find({ author: req.params.id})
+    const userRecipe = Recipes.find({ author: req.params.id })
 
     Promise.all([userRestaurant, userRecipe, userName])
         .then(userPost => {
@@ -29,7 +27,7 @@ router.get('/perfil/:id', (req, res) => {
 
 router.get('/tu-perfil', isLoggedIn, (req, res) => {
 
-    const profileRestaurants = Restaurant.find({ author: req.session.currentUser  })
+    const profileRestaurants = Restaurant.find({ author: req.session.currentUser })
     const profileRecipes = Recipes.find({ author: req.session.currentUser })
 
     Promise.all([profileRestaurants, profileRecipes])
@@ -40,6 +38,5 @@ router.get('/tu-perfil', isLoggedIn, (req, res) => {
         .catch(err => console.log('erroR!!!!', err))
 
 })
-
 
 module.exports = router

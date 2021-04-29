@@ -1,23 +1,23 @@
 <section class="container">
     <h1>Bienvenido a tu perfil!</h1>
-<div class="row">
-<div class="col-6">
+    <div class="row">
+        <div class="col-6">
 
-    {{#each userRestaurant}}
-    <a href="/restaurante/details/{{id}}">
-    <img class="img-profile" src="{{image}}" alt="imagen">
-    </a>
-    {{/each}}
-</div>
-    <div class="col-6">
-    {{#each userRecipe}}
-    <a href="">
-    <img class="img-profile" src="{{image}}" alt="imagen">
-    </a>
-    {{/each}}
+            {{#each userRestaurant}}
+            <a href="/restaurante/details/{{id}}">
+                <img class="img-profile" src="{{image}}" alt="imagen">
+            </a>
+            {{/each}}
 
+        </div>
+
+        <div class="col-6">
+            {{#each userRecipe}}
+            <a href="">
+                <img class="img-profile" src="{{image}}" alt="imagen">
+            </a>
+            {{/each}}
+
+        </div>
     </div>
-
-</div>
-
 </section>
