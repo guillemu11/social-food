@@ -7,22 +7,19 @@ const recipesSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    name: String,
+    name: {
+       type: String,
+       require: [true, 'Es obligatorio ponerle un nombre a la receta']
+    },
     description: String,
     steps: [{
         time: String,
         text: String,
         cookware: String
     }],
-    ingredients: String,
-    // [{
-    //     weight:{
-    //         measurement: Number,
-    //         system: String
-    //     },
-    //     food: String,
-    //     ingredientsImage: String
-    // }],
+    ingredients: {
+       type: String,
+    },
     image: [String]
 }, {
     timestamps: true
