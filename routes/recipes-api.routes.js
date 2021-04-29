@@ -10,38 +10,56 @@ router.get('/random', (req, res) => {
     RecipeApi
         .randomRecipes()
         .then(response => {
-            const { data } = response
-            console.log(data)
-            res.render('pages/perfil/random-recipe', data)
-        })
-
+            const {data} = response
+           res.render('pages/perfil/random-recipe', data)
+             })
         .catch(err => console.log('error', err))
-
 })
 
-router.get('/buscar', (req, res) => {
+router.get('/buscar', (req, res) =>{
+    
+    const { cuisine } =  req.query
 
     RecipeApi
-        .searchRecipes()
-        .then(theRecipes => {
-            const { data } = theRecipes
-            res.render('pages/perfil/search-recipes', { data })
+        .searchRecipesByCuisine(cuisine)
+        .then(response =>{
+            const { data } = response
+            res.render('pages/api-recipes/search-recipes', {data})
+            
+        })
+        .catch(err => console.log('error', err))
+})
+
+
+
+router.get('/tipos', (req, res) => {
+
+    const { type } = req.query
+
+    RecipeApi
+        .searchRecipesByType( type )
+        .then(response => {
+            const { data } = response
+            res.render('pages/api-recipes/search-type',  {data} )
+            
         })
         .catch(err => console.log('error!', err))
 })
 
-// router.get('/buscar', (req, res) => {
+router.get('/', (req, res) => {
 
-//     RecipeApi
-//         .searchRecipes()
-//         .then(response => {
-//             const { data } = response
-//             res.render('pages/perfil/search-recipes', data)
-//         })
-//         .catch(err => console.log('error!', err))
-// })
+    const { id, title } = req.query
 
-// router.post('/buscar/filtrar', (req, res) => {
+    RecipeApi
+        .recipeInformation( id )
+        .then( apiInfo => {
+            console.log('-------Api Infoooooo',apiInfo.data[0].steps[0])
+            res.render('pages/api-recipes/recipe-info', {apiInfo: apiInfo.data, title})
+            })
+        .catch(err => console.log('error', err))
+})
+
+// router.get('/buscar/filtrar', (req, res) =>{
 
 //     RecipeApi
 //         .searchRecipesByCuisine()

@@ -6,7 +6,7 @@ const Recipes = require('./../models/recipes-post.model')
 const User = require('./../models/user.model')
 const { response } = require('express')
 
-// draw Recipes created by the users
+// draw Recipes and Restaurants created by the users
 
 router.get('/', (req, res, next) => {
     const restaurants = Restaurant.find().populate('author')

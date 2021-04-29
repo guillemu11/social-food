@@ -12,14 +12,14 @@ const { isUser, isAdmin } = require('./../utils')
 router.post('/crear', CDNupload.single('image'), (req, res) => {
 
     const image = req.file.path
-    console.log('de crear', req.file.path)
+    
     const { location, name, description, cuisine } = req.body
     const author = req.session.currentUser._id
 
     Restaurant
         .create({ author, location, name, description, cuisine, image })
         .then(response => {
-            console.log(response)
+            
             res.redirect('/')
         })
         .catch(err => console.log('errrrroorrr', err))
