@@ -1,4 +1,3 @@
-
 const { response } = require('express')
 const express = require('express')
 const router = express.Router()
@@ -11,31 +10,43 @@ router.get('/random', (req, res) => {
     RecipeApi
         .randomRecipes()
         .then(response => {
-            const {data} = response
-            console.log(data)
-           res.render('pages/perfil/random-recipe', data)
-             })
-
-        .catch(err => console.log('error', err))
-
-})
-
-router.get('/buscar', (req, res) =>{
-    
-    RecipeApi
-        .searchRecipes(req.query.cuisine)
-        .then(response =>{
             const { data } = response
-            res.render('pages/perfil/search-recipes', {data})
+            console.log(data)
+            res.render('pages/perfil/random-recipe', data)
         })
+
         .catch(err => console.log('error', err))
+
 })
 
-// router.get('/buscar/filtrar', (req, res) =>{
+router.get('/buscar', (req, res) => {
+
+    RecipeApi
+        .searchRecipes()
+        .then(theRecipes => {
+            const { data } = theRecipes
+            res.render('pages/perfil/search-recipes', { data })
+        })
+        .catch(err => console.log('error!', err))
+})
+
+// router.get('/buscar', (req, res) => {
+
+//     RecipeApi
+//         .searchRecipes()
+//         .then(response => {
+//             const { data } = response
+//             res.render('pages/perfil/search-recipes', data)
+//         })
+//         .catch(err => console.log('error!', err))
+// })
+
+// router.post('/buscar/filtrar', (req, res) => {
 
 //     RecipeApi
 //         .searchRecipesByCuisine()
 //         .then(response => console.log(response))
+//         .catch(err => console.log('error', err))
 // })
 
 module.exports = router

@@ -6,14 +6,10 @@ const Recipes = require('./../models/recipes-post.model')
 const { CDNupload } = require('../config/file-upload.config')
 const { response } = require('express')
 
-<<<<<<< HEAD
-const { checkRoles, isLoggedIn } = require('./../middlewares')
-=======
 
 const { checkRoles, isLoggedIn } = require('./../middlewares')
 const { isUser } = require('./../utils')
 
->>>>>>> 25b7aa95fc14bf56ae58b43a928558231c9e52b0
 
 router.post('/crear', isLoggedIn, CDNupload.single('image'), (req, res) => {
 
@@ -31,19 +27,19 @@ router.post('/crear', isLoggedIn, CDNupload.single('image'), (req, res) => {
     }
 
     Recipes
-        .create({name, description, steps, ingredients, author, image})
-        .then(()=> res.redirect('/'))
+        .create({ name, description, steps, ingredients, author, image })
+        .then(() => res.redirect('/'))
         .catch(err => console.log('ERRROOOOOOOOOR', err))
 })
 
-router.get('/detalles/:recipes_id', (req, res) =>{
+router.get('/detalles/:recipes_id', (req, res) => {
 
     const { recipes_id } = req.params
     const { currentUser } = req.session
 
     Recipes
         .findById(recipes_id)
-        .then(oneRecipe => res.render('pages/recipes/recipe-detail', { oneRecipe, isUser: isUser(currentUser)}))
+        .then(oneRecipe => res.render('pages/recipes/recipe-detail', { oneRecipe, isUser: isUser(currentUser) }))
         .catch(err => console.log('errrorrr', err))
 })
 
