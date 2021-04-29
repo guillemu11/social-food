@@ -9,7 +9,7 @@ const { response } = require('express')
 
  const { checkRoles, isLoggedIn } = require('./../middlewares')
 
-router.post('/crear', CDNupload.single('image'), (req, res) => {
+router.post('/crear', isLoggedIn, CDNupload.single('image'), (req, res) => {
 
     const image = req.file.path
     const { name, description, cookware, text, time, ingredients } = req.body
@@ -24,29 +24,36 @@ router.post('/crear', CDNupload.single('image'), (req, res) => {
         steps.push(obj)
     } 
     
-
     Recipes
         .create({name, description, steps, ingredients, image, author})
         .then(()=> res.redirect('/'))
         .catch(err => console.log('ERRROOOOOOOOOR', err))
 })
 
-router.get('/:id', (req, res) =>{
+router.get('/detalles/:id', (req, res) =>{
 
     Recipes
         .findById(req.params.id)
-        .then(oneRecipe => res.render('pages/recipe/recipe-detail', {oneRecipe}))
+        .then(oneRecipe => res.render('pages/recipes/recipe-detail', oneRecipe))
         .catch(err => console.log('errrorrr', err))
 
 })
 
 
-router.get('/borrar',  (req, res) =>{
+router.get('/borrar/:recipes._id',  (req, res) =>{
 
     Recipes
         .findByIdAndDelete(req.query.id)
         .then(() => res.redirect('pages/index'))
         .catch(err => console.log('errreeoeooo', err))
+})
+
+router.get('/lista', (req, res) => {
+
+    Recipes
+        .find()
+        .then(theRecipes => res.render('pages/recipes/recipe-list', { theRecipes }))
+        .catch(err => console.log('erroooooor', err))
 })
 
 

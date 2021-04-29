@@ -88,4 +88,13 @@ router.post('/deletar/:restaurante_id', checkRoles('USER', 'ADMIN'), (req, res) 
         .catch(err => console.log('Error!', err))
 })
 
+
+router.get('/lista', (req, res) =>{
+    
+    Restaurant
+    .find()
+    .then(theRestaurants => res.render('pages/restaurants/restaurant-list', {theRestaurants}))
+    .catch(err => console.log('erroooooor', err))
+})
+
 module.exports = router

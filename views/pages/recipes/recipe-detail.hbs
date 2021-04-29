@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h1 style="font-weight: 100">Nombre de la receta: {{name}}</h1>
+
+    <h4>Descripción</h4>
+    <p>{{description}}</p>
+
+    <hr>
+
+    <h5>¿Como se hace?</h5>
+    <figure>
+        <img src="{{images}}" alt="Restaurant image">
+    </figure>
+
+    <p><strong>ingredients</strong>: {{ingredients}}</p>
+    <h5>Pasos a seguir</h5>
+    {{steps.0.text}}
+
+    {{steps.1.text}}
+    {{steps.2.text}}
+    {{steps.3.text}}
+
+
+    <a href="/" class="btn btn-dark">Volver</a>
+
+    <button>
+        <a href="/recetas/editar/{{id}}">Editar post</a>
+    </button>
+    <form action="/recetas/borrar?id={{id}}" method="POST">
+        <button>
+            <a>Deletar post</a>
+        </button>
+    </form>
+
+</div>

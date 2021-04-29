@@ -5,6 +5,7 @@ const router = express.Router()
 const Restaurant = require('./../models/restaurant-post.model')
 const Recipes = require('./../models/recipes-post.model')
 const User = require('./../models/user.model')
+const { response } = require('express')
 
 
 
@@ -13,16 +14,14 @@ const User = require('./../models/user.model')
 //draw Recipes created by the users
 
 router.get('/', (req, res, next) => {
-    const restaurantes = Restaurant.find({ author: req.session.currentUser }).populate('author')
+    const restaurants = Restaurant.find().populate('author')
+    const recipes = Recipes.find().populate('author')
 
-    const recetas = Recipes.find().populate('author')
-
-    Promise.all([restaurantes, recetas])
-        .then(resultado => {
-            res.render('pages/index', { restaurantes: resultado[0], recetas: resultado[1] })
+    Promise.all([restaurants, recipes])
+        .then(response => {
+            res.render('pages/index', { allRestaurants: response[0], allRecipes: response[1] })
         })
         .catch(err => next(new Error(err)))
-
 })
 
 

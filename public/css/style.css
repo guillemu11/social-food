@@ -79,4 +79,15 @@ ul.tabs {
   display: flex;
   justify-content: center; }
 
+img {
+  width: 100%; }
+
+.img-profile {
+  width: 200px;
+  height: 200px; }
+
+.menu {
+  display: flex;
+  flex-direction: row; }
+
 /*# sourceMappingURL=style.css.map */

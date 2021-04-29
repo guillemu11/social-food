@@ -12,27 +12,24 @@ const { checkMongooseError } = require('./../utils')
 router.get('/registro', (req, res) => res.render('pages/auth/signup'))
 
 router.post('/registro', (req, res) => {
-
     const { username, pwd, pwd2 } = req.body
-
+    
     const salt = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(pwd, salt)
-
-
+    
+    if(pwd != pwd2){
+        res.redirect('/registro')
+    }
+    
     User
-        .create({ username, password: hashPass, password2: hashPass2 })
-        .then(() => {
-            if (password === password2) {
-                res.redirect('/')
-            }
-        })
-        .catch(err => res.render('pages/auth/signup', { errorMessage: checkMongooseError(err) }))
-
+    .create({ username, password: hashPass})
+    .then(() => res.redirect('/'))
+    .catch(err => res.render('pages/auth/signup', { errorMessage: checkMongooseError(err) }))
+    
 })
 
 
 router.get('/inicio-sesion', (req, res) => res.render('pages/auth/login'))
-
 
 router.post('/inicio-sesion', (req, res) => {
 
@@ -55,17 +52,10 @@ router.post('/inicio-sesion', (req, res) => {
         })
 
         .catch(err => console.log('error', err))
-
-
 })
 
 router.get('/cerrar-sesion', (req, res) => {
     req.session.destroy((err) => res.redirect("/inicio-sesion"));
 })
-
-
-
-
-
 
 module.exports = router

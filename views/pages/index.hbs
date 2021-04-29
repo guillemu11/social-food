@@ -31,7 +31,7 @@
             </div>
             <div class="small-center-img">
 
-                <a href="#"><img class="small-img" src="/img/alitas.png" alt=""></a>
+                <a href="/recetas/lista"><img class="small-img" src="/img/alitas.png" alt=""></a>
             </div>
         </div>
         <div class="col-3 wings-img">
@@ -69,39 +69,43 @@
 </section>
 
 <section class="container">
-    {{#each restaurantes}}
-    <a href="/publicacion/perfil">
-        <h1>{{author.username}}</h1>
-    </a>
     <div class="row">
-        <h2>{{name}}</h2>
-        <a href="/restaurante/details/{{id}}">
-            <figure>
-                <img src="{{image}}" alt="restaurants photo">
-            </figure>
-        </a>
-        <p><strong>Descripción: </strong>{{description}}</p>
+        <div class="col-6">
+            {{#each allRestaurants}}
+                <a href="/publicacion/perfil/{{author._id}}"><h1>{{author.username}}</h1> </a>
+                <h2>{{name}}</h2>
+                <a href="/restaurante/details/{{id}}">
+                    <figure>
+                    <img src="{{image}}" alt="restaurants photo">
+                    </figure>
+                </a>
+                <p><strong>Descripción: </strong>{{description}}</p>
+            {{/each}}
+            </div>
+        </div>
+        <div class="col-6">
+            {{#each allRecipes}}
+            <a href="/publicacion/perfil/{{author._id}}">
+                <h1>{{author.username}}</h1>
+            </a>
+            <h2>{{name}}</h2>
+            <a href="/recetas/detalles/{{id}}">
+                <figure>
+                    <img src="{{image}}" alt="restaurants photo">
+                </figure>
+            </a>
+            <p>{{description}}</p>
+            <p>{{ingredients}}</p>
+            <p><strong>Descripción: </strong>{{description}}</p>
+        {{/each}}
+        </div>
+     </div>
+
     </div>
-    {{/each}}
 
 
 </section>
 
-<section>
-
-    {{#each allRecipesPost}}
-    <h1> Receta: {{name}}</h1>
-    <figure>
-        <img src="{{image}}" alt="{{description}}">
-    </figure>
-    <p>{{descripcion}}</p>
-    <p>{{method}}</p>
-    {{/each}}
-
-
-
-
-</section>
 
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 <script>

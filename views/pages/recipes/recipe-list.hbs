@@ -1,0 +1,14 @@
+<div>
+    {{#each theRecipes}}
+    <a href="/publicacion/perfil/{{author._id}}">
+        <h1>{{author.username}}</h1>
+    </a>
+    <h2>{{name}}</h2>
+    <a href="/recetas/detalles/{{id}}">
+        <figure>
+            <img src="{{image}}" alt="restaurants photo">
+        </figure>
+    </a>
+    <p><strong>Descripción: </strong>{{description}}</p>
+    {{/each}}
+</div>
