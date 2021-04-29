@@ -36,38 +36,7 @@ router.get('/details/:restaurante_id', (req, res) => {
         .catch(err => console.log('Error!!!', err))
 })
 
-router.get('/editar', (req, res) => {
 
-    const { restaurante_id } = req.query
-
-    Restaurant
-        .findById(restaurante_id)
-        .populate('author')
-        .then(restaurantInfo => res.render('pages/perfil/edit-restaurant', restaurantInfo))
-        .catch(err => console.log('Error!!!', err))
-})
-
-router.post('/editar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), CDNupload.single('image'), (req, res) => {
-
-    const image = req.file.path
-    const { restaurante_id } = req.params
-    const { location, name, description, cuisine } = req.body
-
-    Restaurant
-        .findByIdAndUpdate(restaurante_id, { location, name, description, cuisine, image })
-        .then(() => res.redirect('/'))
-        .catch(err => console.log('Error!', err))
-})
-
-router.post('/borrar/:restaurante_id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res) => {
-
-    const { restaurante_id } = req.params
-
-    Restaurant
-        .findByIdAndDelete(restaurante_id)
-        .then(() => res.redirect('/'))
-        .catch(err => console.log('Error!', err))
-})
 
 router.get('/lista', (req, res) => {
 

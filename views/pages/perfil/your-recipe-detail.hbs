@@ -19,4 +19,16 @@
     {{oneRecipe.steps.2.text}}
     {{oneRecipe.steps.3.text}}
 
+
+    <a href="/" class="btn btn-dark">Volver</a>
+    {{#if isUser}}
+    <button>
+        <a href="/publicacion/recetas/editar/{{oneRecipe.id}}">Editar post</a>
+    </button>
+    <form action="/publicacion/recetas/borrar/{{oneRecipe.id}}">
+        <button>
+            <a>borrar post</a>
+        </button>
+    </form>
+    {{/if}}
 </div>

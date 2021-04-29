@@ -1,0 +1,102 @@
+<div class="container">
+<h1>Editar receta</h1>
+<hr>
+
+<form action="/publicacion/recetas/editar/{{id}}" method="POST">
+    <div class="form-group">
+        <label for="name">Nombre de la receta</label>
+        <input type="text" class="form-control" id="username" name="name" value="{{name}}">
+    </div>
+    <div class="form-group">
+        <label for="description">descripcion</label>
+        <textarea class="form-control" id="msn" rows="2" placeholder="Descripcion corta" name="description" >{{description}}</textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label for="steps">¿Como se hace?
+        </label>
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                        aria-controls="v-pills-home" aria-selected="true">Paso 1</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                        aria-controls="v-pills-profile" aria-selected="false">Paso 2</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false">Paso 3</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                        aria-controls="v-pills-settings" aria-selected="false">Paso 4</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <textarea class="form-control" id="msn" rows="3" placeholder="Aquí los pasos de la receta"
+                            name="text" >{{text}}</textarea>
+                        <p>
+                        <div class="form-group">
+                            <label for="cookware"></label>
+                            <textarea class="form-control" id="msn" rows="2"
+                                placeholder="Utensiolios que necesitaras en este paso" name="cookware" value="{{cookware}}"></textarea>
+                        </div>
+                        <label for="input-time">Tiempo por paso</label>
+                        <input id="input-time" type="time" value="00:00:01" name="time" value="{{time}}">
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab"><textarea class="form-control" id="msn" rows="3"
+                            placeholder="Aquí los pasos de la receta" name="text" >{{steps.0.text}}</textarea>
+                        <p>
+                        <div class="form-group">
+                            <label for="cookware"></label>
+                            <textarea class="form-control" id="msn" rows="2"
+                                placeholder="Utensiolios que necesitaras en este paso" name="cookware" value="{{cookware}}"></textarea>
+                        </div>
+                        <label for="input-time">Tiempo por paso</label>
+                        <input id="input-time" type="time" value="00:00:01" name="time" value="{{time}}">
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                        aria-labelledby="v-pills-messages-tab"><textarea class="form-control" id="msn" rows="3"
+                            placeholder="Aquí los pasos de la receta" name="text" >{{text}}</textarea>
+                        <p>
+                        <div class="form-group">
+                            <label for="cookware"></label>
+                            <textarea class="form-control" id="msn" rows="2"
+                                placeholder="Utensiolios que necesitaras en este paso" name="cookware" value="{{cookware}}"></textarea>
+                        </div>
+                        <label for="input-time">Tiempo por paso</label>
+                        <input id="input-time" type="time" value="00:00:01" name="time" value="{{time}}">
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                        aria-labelledby="v-pills-settings-tab"><textarea class="form-control" id="msn" rows="3"
+                            placeholder="Aquí los pasos de la receta" name="text" >{{text}}</textarea>
+                        <p>
+                        <div class="form-group">
+                            <label for="cookware"></label>
+                            <textarea class="form-control" id="msn" rows="2"
+                                placeholder="Utensiolios que necesitaras en este paso" name="cookware" value="{{cookware}}"></textarea>
+                        </div>
+                        <label for="input-time">Tiempo total</label>
+                        <input id="input-time" type="time" value="00:00:01" name="time" value="{{time}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="ingredients">Ingredientes</label>
+        <textarea class="form-control" id="msn" rows="3" placeholder="Los ingredientes que usaremos..."
+            name="ingredients" value="{{ingredients}}"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark btn-block">Subir</button>
+    {{#if errorMessage}}
+    <div id="error">
+        <p>{{errorMessage}}</p>
+    </div>
+    {{/if}}
+</form>
+
+
+</div>

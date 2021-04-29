@@ -21,10 +21,9 @@ router.get('/random', (req, res) => {
 })
 
 router.get('/buscar', (req, res) =>{
-    const {cuisine} = req.body
     
     RecipeApi
-        .searchRecipes(cuisine)
+        .searchRecipes(req.query.cuisine)
         .then(response =>{
             const { data } = response
             res.render('pages/perfil/search-recipes', {data})

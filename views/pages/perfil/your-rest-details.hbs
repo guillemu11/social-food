@@ -5,6 +5,17 @@
     <h4>Descripción</h4>
     <p>{{restaurantInfo.description}}</p>
 
+    {{#if isUser}}
+    <button>
+        <a href="/publicacion/restaurante/editar?restaurante_id={{restaurantInfo.id}}">Editar post</a>
+    </button>
+    <form action="/publicacion/restaurante/borrar/{{restaurantInfo.id}}" method="POST">
+        <button>
+            <a>Deletar post</a>
+        </button>
+    </form>
+    {{/if}}
+
     <hr>
 
     <h5>Sobre el restaurante</h5>
