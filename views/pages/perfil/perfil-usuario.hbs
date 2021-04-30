@@ -1,23 +1,72 @@
 <section class="container">
-    <h1>Bienvenido a tu perfil!</h1>
-    <div class="row">
-        <div class="col-6">
-
+    <h1>Bienvenido al perfil de {{userName.username}}</h1>
+    <hr>
+    <h1>Restaurantes</h1>
+    <div class="card" style="border-style: none;">
+        <div class="row">
             {{#each userRestaurant}}
-            <a href="/restaurante/details/{{id}}">
-                <img class="img-profile" src="{{image}}" alt="imagen">
-            </a>
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/restaurante/details/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <li class="list-group-item">
+                        <p> created by
+                            <a href="/publicacion/perfil/{{author._id}}">
+                                <strong>{{author.username}}</strong>
+                        </p>
+                        </a>
+                    </li>
+                    </p>
+                    <a class=" btn btn-secondar" href="/restaurante/details/{{id}}">
+                        <li>detalles</li>
+                    </a>
+                </ul>
+    
+            </div>
             {{/each}}
-
+    
         </div>
-
-        <div class="col-6">
-            {{#each userRecipe}}
-            <a href="">
-                <img class="img-profile" src="{{image}}" alt="imagen">
-            </a>
-            {{/each}}
-
+    </div>
+    <hr>
+    <h1>Las recetas de {{userName.username}}</h1>
+        <div class="card" style="border-style: none;">
+            <div class="row">
+                {{#each userRecipe}}
+                <div class="col-3">
+                    <div class="card-header">
+                        <a href="/recetas/detalles/{{id}}">
+                            <figure>
+                                <img src="{{image}}" alt="restaurants photo">
+                            </figure>
+                        </a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{name}}</li>
+                        <li class="list-group-item">{{description}}</li>
+                        <li class="list-group-item">
+                            <p> created by
+                                <a href="/publicacion/perfil/{{author._id}}">
+                                    <strong>{{author.username}}</strong>
+                            </p>
+                            </a>
+                        </li>
+                        </p>
+                        <a class=" btn btn-secondar" href="/recetas/detalles/{{id}}">
+                            <li>detalles</li>
+                        </a>
+                    </ul>
+        
+                </div>
+                {{/each}}
+        
+            </div>
         </div>
     </div>
 </section>

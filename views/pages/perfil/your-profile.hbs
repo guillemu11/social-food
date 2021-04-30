@@ -1,23 +1,55 @@
 <section class="container">
-    <h1>Bienvenido a tu perfil!</h1>
-    <div class="row">
-        <div class="col-6">
 
+    <h1>Tus Restaurantes</h1>
+    <div class="card" style="border-style: none;">
+        <div class="row">
             {{#each urProfileRestaurant}}
-            <a href="/publicacion/tu-perfil/restaurantes/detalles/{{id}}">
-                <img class="img-profile" src="{{image}}" alt="imagen">
-            </a>
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/restaurante/details/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <li class="list-group-item">
+                     <a href="/publicacion/tu-perfil/restaurantes/detalles/{{id}}">Editar</a>
+                    </li>
+                </ul>
+    
+            </div>
             {{/each}}
+    
         </div>
-        <div class="col-6">
-            {{#each urProfileRecipes}}
-            <a href="/publicacion/tu-perfil/recetas/detalles/{{id}}">
-                <img class="img-profile" src="{{image}}" alt="imagen">
-            </a>
-            {{/each}}
-
-        </div>
-
     </div>
-
+    <hr>
+    <h1>Tus Recetas</h1>
+    <div class="card" style="border-style: none;">
+        <div class="row">
+            {{#each urProfileRecipes}}
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/recetas/detalles/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <li class="list-group-item">
+                        <a href="/publicacion/tu-perfil/recetas/detalles/{{id}}">Editar</a>
+                    </li>
+                </ul>
+    
+            </div>
+            {{/each}}
+    
+        </div>
+    </div>
+    </div>
 </section>

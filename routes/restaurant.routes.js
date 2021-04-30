@@ -13,7 +13,7 @@ router.post('/crear', CDNupload.single('image'), (req, res) => {
 
     const image = req.file.path
     
-    const { name, description, cuisine, latitude, longitude } = req.body
+    const { name, description, cuisine, latitude, longitude, ubication } = req.body
     const author = req.session.currentUser._id
 
     const location = {
@@ -22,9 +22,9 @@ router.post('/crear', CDNupload.single('image'), (req, res) => {
     }
 
     Restaurant
-        .create({ author, location, name, description, cuisine, image })
+        .create({ author, location, name, description, cuisine, image, ubication })
         .then(response => {
-            
+            res.send(response)
             res.redirect('/')
         })
         .catch(err => console.log('errrrroorrr', err))

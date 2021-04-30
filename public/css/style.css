@@ -80,40 +80,8 @@ img {
   flex-direction: row; }
 
 .footer-links {
-  margin-top: 500px;
-  background: #6fc06f; }
-
-.footer-links li {
-  list-style: none;
-  padding-top: 10px;
-  margin-top: 20px; }
-
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center; }
-
-#restarants-map {
-  height: 60vh;
-  margin: 0;
-  margin-top: 150px; }
-
-#route {
-  background-color: white;
-  position: absolute;
-  left: 150px;
-  height: 60vh;
-  width: 75vw;
-  padding: 20px;
-  overflow-y: scroll;
-  margin-bottom: 1000px;
-  text-align: center; }
-
-.detail-image {
-  width: 300px; }
-
-.card li {
-  list-style: none; }
+  margin-top: 300px;
+  background-color: #65bd65; }
 
 .box1 img {
   height: 200px;
@@ -141,6 +109,50 @@ nav a {
   text-decoration: none; }
 
 .ddm a {
-  color: black; }
+  color: black;
+  margin-top: 500px;
+  background: #6fc06f; }
+
+.footer-links li {
+  list-style: none;
+  padding-top: 10px;
+  margin-top: 20px; }
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; }
+
+#restarants-map {
+  height: 60vh;
+  margin: 0;
+  margin-top: 150px; }
+
+#route {
+  background-color: white;
+  left: 150px;
+  height: 60vh;
+  width: 75vw;
+  padding: 20px;
+  overflow-y: scroll;
+  margin-bottom: 5px;
+  text-align: center; }
+
+.detail-image {
+  width: 300px; }
+
+.card li {
+  list-style: none; }
+
+.auth {
+  margin-top: 100px;
+  margin-bottom: 200px; }
+
+.post-sections {
+  margin-top: 150px; }
+
+.img-recetas {
+  height: 150px;
+  width: 500px; }
 
 /*# sourceMappingURL=style.css.map */
