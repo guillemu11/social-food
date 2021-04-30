@@ -22,7 +22,7 @@ router.get('/perfil/:id', (req, res) => {
     Promise.all([userRestaurant, userRecipe, userName])
         .then(userPost => {
             console.log(userPost)
-            res.render('pages/perfil/perfil-usuario', { userRestaurant: userPost[0], userRecipe: userPost[1] })
+            res.render('pages/perfil/perfil-usuario', { userRestaurant: userPost[0], userRecipe: userPost[1], userName: userPost[2] })
         })
         .catch(err => console.log('erroR!!!!', err))
 })
@@ -76,10 +76,14 @@ router.post('/restaurante/editar/:restaurante_id', isLoggedIn, checkRoles('USER'
     const image = req.file.path
     console.log('--- imagem -----', req.file.path)
     const { restaurante_id } = req.params
-    const { location, name, description, cuisine } = req.body
+    const { ubication, name, description, cuisine } = req.body
+    const location = {
+        type: 'Point',
+        coordinates: [latitude, longitude]
+    }
 
     Restaurant
-        .findByIdAndUpdate(restaurante_id, { location, name, description, cuisine, image })
+        .findByIdAndUpdate(restaurante_id, { location, name, description, cuisine, image, ubication })
         .then(() => res.redirect('/'))
         .catch(err => console.log('Error!', err))
 })

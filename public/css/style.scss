@@ -2,9 +2,6 @@ body {
   font-family: sans-serif;
   font-weight: 200;
 }
-.navbar {
-  margin-bottom: 50px;
-}
 #error {
   background-color: rgb(255, 90, 90);
   color: white;
@@ -88,7 +85,8 @@ img{
   flex-direction: row;
 }
 .footer-links{
-  margin-top: 100px;
+  margin-top: 300px;
+  background-color: rgb(101, 189, 101);
 }
 
 .box1 img {
@@ -150,7 +148,7 @@ nav a {
     width: 75vw;
     padding: 20px;
     overflow-y: scroll;
-    margin-bottom: 1000px;
+    margin-bottom: 5px;
     text-align: center;
 }
 .detail-image{
@@ -169,4 +167,18 @@ nav a {
 
 .steps {
   background-color: burlywood;
+}
+.auth{
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+
+.post-sections{
+  margin-top: 150px;
+}
+
+.img-recetas{
+ 
+  height: 150px;
+  width: 500px ;
 }

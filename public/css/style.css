@@ -2,9 +2,6 @@ body {
   font-family: sans-serif;
   font-weight: 200; }
 
-.navbar {
-  margin-bottom: 50px; }
-
 #error {
   background-color: #ff5a5a;
   color: white;
@@ -83,7 +80,8 @@ img {
   flex-direction: row; }
 
 .footer-links {
-  margin-top: 100px; }
+  margin-top: 300px;
+  background-color: #65bd65; }
 
 .box1 img {
   height: 200px;
@@ -137,7 +135,7 @@ nav a {
   width: 75vw;
   padding: 20px;
   overflow-y: scroll;
-  margin-bottom: 1000px;
+  margin-bottom: 5px;
   text-align: center; }
 
 .detail-image {
@@ -153,5 +151,16 @@ nav a {
 
 .steps {
   background-color: burlywood; }
+
+.auth {
+  margin-top: 100px;
+  margin-bottom: 200px; }
+
+.post-sections {
+  margin-top: 150px; }
+
+.img-recetas {
+  height: 150px;
+  width: 500px; }
 
 /*# sourceMappingURL=style.css.map */

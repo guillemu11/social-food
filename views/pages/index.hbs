@@ -66,8 +66,10 @@
     </div>
 </section>
 
-<div class="container">
-    <h1>NUESTROS USUARIOS OPINAN</h1>
+<div class="container post-sections">
+    <div class="img-recetas">
+         <img src="/img/recetas.png"  alt="">
+    </div>
     <hr>
     <div class="card" style="border-style: none;">
         <div class="row">
@@ -83,9 +85,12 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{name}}</li>
                     <li class="list-group-item">{{description}}</li>
-                    <li class="list-group-item author"><a href="/publicacion/perfil/{{author._id}}">
-                            <h1>{{author.username}}</h1>
-                        </a></li>
+                    <li class="list-group-item author">
+                        <p> created by
+                            <a href="/publicacion/perfil/{{author._id}}">
+                                <strong>{{author.username}}</strong></p>
+                            </a></li>
+                        </p>
 
                     <a class=" btn btn-secondar" href="/restaurante/details/{{id}}">
                         <li>detalles</li>
@@ -97,7 +102,46 @@
     </div>
 
 
+<hr>
+
+
+<div class="container post-sections">
+    <img src="/img/restaurantes.png" alt="">
     <hr>
+    <div class="card" style="border-style: none;">
+        <div class="row">
+            {{#each allRecipes}}
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/recetas/detalles/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <li class="list-group-item">
+                    <p> created by
+                        <a href="/publicacion/perfil/{{author._id}}">
+                            <strong>{{author.username}}</strong>
+                    </p>
+                    </a></li>
+                    </p>
+                    <a class=" btn btn-secondar" href="/recetas/detalles/{{id}}">
+                        <li>detalles</li>
+                    </a>
+                </ul>
+
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+ </div>
+
+
 
 
     <div class="container">
@@ -130,24 +174,16 @@
         </div>
     </div>
 
-    <figure id="restarants-map"></figure>
-    <section id="route">
-        <div class="container">
-            {{#each allRestaurants}}
-            <h3>Nombre del restaurante: {{name}}</h3>
-            <p>ubicacion {{ubication}} </p>
-            <hr>
-            {{/each}}
-        </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-    <script>
-        new Glide('.glide').mount()
-    </script>
-    <script src="/services/api-handler.js"></script>
-    <script src="https://api.spoonacular.com/recipes/complexSearch?apiKey=54362f27bf61476e95d0f5988211fbfd"></script>
-    <script src="/js/mapstyles.js"></script>
-    <script src="/js/map-restaurants-app.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bMJakHxHvW_U33axYwTUL7ccGZMpUUk&callback=initMap"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+    new Glide('.glide').mount()
+</script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/services/api-handler.js"></script>
+<script src="https://api.spoonacular.com/recipes/complexSearch?apiKey=54362f27bf61476e95d0f5988211fbfd"></script>
+<script src="/js/mapstyles.js"></script>
+<script src="/js/map-restaurants-app.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bMJakHxHvW_U33axYwTUL7ccGZMpUUk&callback=initMap"></script>
