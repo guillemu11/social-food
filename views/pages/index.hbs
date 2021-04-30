@@ -3,16 +3,16 @@
         <div class="glide">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
-                <a href="/api/recetas/tipos?type=breakfast"><img src="/img/prueba-slider.png" class="glide__slide" alt=""></a> 
-                <a href="/api/recetas/tipos?type=drink"><img src="/img/prueba-slider.png" class="glide__slide" alt=""></a>
-                <a href="/api/recetas/tipos?type=dessert"><img src="/img/prueba-slider.png" class="glide__slide" alt=""></a>
+                    <a href="/api/recetas/tipos?type=main-course"><img src="/img/meat.png" class="glide__slide"
+                            alt=""></a>
+                    <a href="/api/recetas/tipos?type=bread"><img src="/img/bread.png" class="glide__slide" alt=""></a>
+                    <a href="/api/recetas/tipos?type=dessert"><img src="/img/dessert03.png" class="glide__slide"
+                            alt=""></a>
                 </ul>
             </div>
         </div>
     </div>
-
 </section>
-
 
 <section class="container index">
     <div class="row index-img">
@@ -30,7 +30,7 @@
             </div>
             <div class="small-center-img">
 
-                <a href="/recetas/lista"><img class="small-img" src="/img/alitas.png" alt=""></a>
+                <a href="/recetas/lista"><img class="small-img alitas" src="/img/alitas.png" alt=""></a>
             </div>
         </div>
         <div class="col-3 wings-img">
@@ -48,26 +48,35 @@
 <section class="container">
     <div class="container justify-content-between box2">
         <header class="title">
-            <h1>Recetas para cualquier momento del dia</h1>
+            <h3>Recetas típicas de algunos países</h3>
             <p></p>
             <hr>
         </header>
-        <div class="row">
-            <div class="col-3 box3">
-               <a href="/api/recetas/buscar?cuisine=italian"><h1>hola</h1></a>
+        <div class="row d-flex justify-content-around">
+            <div class="col-3">
+                <a href="/api/recetas/buscar?cuisine=italian">
+                    <img src="/img/pasta2.jpg" alt="">
+                </a>
             </div>
             <div class="col-3 box3">
-               <a href="/api/recetas/buscar?cuisine=spanish"><h1>hola</h1></a>
+                <a href="/api/recetas/buscar?cuisine=spanish">
+                    <img src="/img/paella2.jpg" alt="">
+                </a>
             </div>
             <div class="col-3 box3">
-            <a href="/api/recetas/buscar?cuisine=latin-american"> <h1>hola</h1></a>
+                <a href="/api/recetas/buscar?cuisine=latin-american">
+                    <img src="/img/tacos4.jpg" alt="">
+                </a>
             </div>
         </div>
 
     </div>
 </section>
 
+<hr>
+
 <section class="container">
+    <h4>Posts de nuestros usuarios</h4>
     <div class="row">
         <div class="col-6">
             {{#each allRestaurants}}
@@ -81,6 +90,7 @@
                 </figure>
             </a>
             <p><strong>Descripción: </strong>{{description}}</p>
+            <hr>
             {{/each}}
         </div>
     </div>
@@ -98,6 +108,7 @@
         <p>{{description}}</p>
         <p>{{ingredients}}</p>
         <p><strong>Descripción: </strong>{{description}}</p>
+        <hr>
         {{/each}}
     </div>
     </div>

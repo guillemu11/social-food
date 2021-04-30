@@ -14,116 +14,29 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">
-      <img src="/img/logo.svg" width="30" height="30" alt="Logo" class="d-inline-block align-top"> {{siteTitle}}
-    </a>
+  <nav class="container">
+    <a href="/"><img src="/img/project-logo.png" alt="logo"></a><br>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"> <a class="nav-link" href="/">Inicio</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="/api/recetas/random">Random</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="/">Explorar</a> </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Perfil</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/inicio-sesion">Inicio Sesion</a>
-            <a class="dropdown-item" href="/registro">Registrarse</a>
-            <a class="dropdown-item" href="/publicacion/tu-perfil">Tu Perfil</a>
-            <a class="dropdown-item" href="/cerrar-sesion">Cerrar Sesión</a>
-            <a class="dropdown-item" href="/publicacion">Añadir Publicación</a>
-          </div>
-        <li class="nav-item"> <a class="nav-link" href="/imagenes">Galería</a> </li>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/publicacion">Añadir Publicacion</a></li>
+      <li><a href="/publicacion/tu-perfil">Tu Perfil</a></li>
+      <li class="dropdown ddm">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Usuario
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <a href="/inicio-sesion">Iniciar Sesion</a>
+          <a href="/registro">Registro<br></a>
+          <a href="/cerrar-sesion">Cerrar Sesion</a>
+        </ul>
+      </li>
+    </ul>
   </nav>
+
+  <hr>
 
   <main>
     {{{body}}}
-
-    <footer>
-      <section class="footer-links">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2 col-xl-4">
-              <img src="images/Slack.ico" alt="">
-            </div>
-            <div class="col-md-10 col-xl-8">
-              <div class="row padding-bottom">
-                <div class="col-6 col-md-3">
-                  <ul>
-                    <li><strong>DEVELOPERS</strong></li>
-                    <li>David Edson alias el granuja</li>
-                    <li>Guillermo Muñoz el patron del bien</li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul>
-                    <li><strong>RECETAS</strong></li>
-                    <a href=""><li>De nuestra comunidad</li></a>
-                    <a href=""><li>Las preferidas de los creadores</li></a>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul>
-                    <li><strong>RESTAURANTES</strong></li>
-                    <a href="">
-                      <li>De nuestra comunidad</li>
-                    </a>
-                    <a href="">
-                      <li>Los favoritos</li>
-                    </a>
-                    <li>Guides</li>
-                    <li>Events</li>
-                    <li>App Directory</li>
-                    <li>API</li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul>
-                    <li><strong>EXTRAS</strong></li>
-                    <li>Podcast</li>
-                    <li>Slack Shop</li>
-                    <li>Slack at Work</li>
-                    <li>Slack Fund</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="footer-copyright center-text-mobile">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-xl-8">
-              <ul class="links-copyright-footer">
-                <li>Status</li>
-                <li>Privacy & Terms</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
-            <div class="col-md-3 language-selector col-xl-2">
-              <img src="./images/us-flag.png" alt="" />
-              <span>English (US)</span>
-              <i class="fas fa-chevron-down fa-1x"></i>
-            </div>
-            <div class="col-md-3 social-media-icon col-xl-2">
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-facebook-f"></i>
-              <i class="fab fa-youtube"></i>
-            </div>
-          </div>
-        </div>
-      </section>
-    </footer>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
