@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h1 style="font-weight: 100">Nombre del restaurante: {{name}}</h1>
+    <h1 style="font-weight: 100"> {{title}}</h1>
 
     <h4>Descripción</h4>
     <p>{{apiInfo.description}}</p>
@@ -8,11 +8,15 @@
     <hr>
 
     <h5>Sobre la receta</h5>
-    <figure>
-        <img src="{{image}}" alt="Restaurant image">
-    </figure>
+    <h6>Paso 1</h6>
+    <div class="row">
 
-    <p><strong>Tipo</strong>: {{restaurantInfo.cuisine}}</p>
+        <figure>
+            <img class="detail-image" src="{{apiInfo.0.steps.0.image}}" alt="Restaurant image">
+        </figure>
+
+        <p><strong>Tipo</strong>: {{restaurantInfo.cuisine}}</p>
+    </div>
 
     <a href="/" class="btn btn-dark">Volver</a>
 

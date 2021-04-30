@@ -2,8 +2,14 @@ body {
   font-family: sans-serif;
   font-weight: 200;
 }
+<<<<<<< HEAD
 
 
+=======
+.navbar {
+  margin-bottom: 50px;
+}
+>>>>>>> a745f70ea2bdbdbe3f8229efd3dace9fbbed638a
 #error {
   background-color: rgb(255, 90, 90);
   color: white;
@@ -86,8 +92,8 @@ img{
   display: flex;
   flex-direction: row;
 }
-
 .footer-links{
+<<<<<<< HEAD
   margin-top: 100px;
 }
 
@@ -125,4 +131,41 @@ nav a {
 
 .ddm a {
   color: black;
+=======
+  margin-top: 500px;
+  background: rgb(111, 192, 111);
+}
+.footer-links li{
+  list-style: none;
+  padding-top: 10px;
+  margin-top: 20px;
+}
+.buttons{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+#restarants-map {
+  height: 60vh;
+  margin: 0;
+  margin-top: 150px;
+}
+#route {
+    background-color: white;
+    position: absolute;
+    left: 150px;
+    height: 60vh;
+    width: 75vw;
+    padding: 20px;
+    overflow-y: scroll;
+    margin-bottom: 1000px;
+    text-align: center;
+}
+.detail-image{
+  width: 300px;
+  
+}
+.card li{
+  list-style: none;
+>>>>>>> a745f70ea2bdbdbe3f8229efd3dace9fbbed638a
 }

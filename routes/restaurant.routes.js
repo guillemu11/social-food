@@ -13,8 +13,13 @@ router.post('/crear', CDNupload.single('image'), (req, res) => {
 
     const image = req.file.path
     
-    const { location, name, description, cuisine } = req.body
+    const { name, description, cuisine, latitude, longitude } = req.body
     const author = req.session.currentUser._id
+
+    const location = {
+        type: 'Point',
+        coordinates: [latitude, longitude]
+    }
 
     Restaurant
         .create({ author, location, name, description, cuisine, image })
