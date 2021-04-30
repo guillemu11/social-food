@@ -6,23 +6,22 @@
     <p>{{oneRecipe.description}}</p>
 
     <hr>
-<div class="row">
-    <div class="col-4">
-        <figure>
-            <img class="detail-image" src="{{oneRecipe.image}}" alt="Restaurant image">
-        </figure>
-     </div>
-<div class="col-8">
-    <h5>¿Como se hace?</h5>
-    <p><strong>ingredients</strong>: {{ingredients}}</p>
-    <h5>Pasos a seguir</h5>
-    {{oneRecipe.steps.0.text}}
-    {{oneRecipe.steps.1.text}}
-    {{oneRecipe.steps.2.text}}
-    {{oneRecipe.steps.3.text}}
 
-</div>
-
-</div>
+    <div class="row">
+        <div class="col-4">
+            <figure>
+                <img class="detail-image" src="{{oneRecipe.image}}" alt="Restaurant image">
+            </figure>
+        </div>
+        <div class="col-8">
+            <h5>¿Como se hace?</h5>
+            <p><strong>ingredients</strong>: {{ingredients}}</p>
+            <h5>Pasos a seguir</h5>
+            {{oneRecipe.steps.0.text}}
+            {{oneRecipe.steps.1.text}}
+            {{oneRecipe.steps.2.text}}
+            {{oneRecipe.steps.3.text}}
+        </div>
+    </div>
 
 </div>

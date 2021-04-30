@@ -1,19 +1,25 @@
 <div class="container">
 
-    <h1 style="font-weight: 100">Nombre del restaurante: {{name}}</h1>
+    <h1 style="font-weight: 100">Nombre del restaurante: {{restaurantInfo.name}}</h1>
 
-    <h4>Descripción</h4>
-    <p>{{restaurantInfo.description}}</p>
+    <h4>Sobre el restaurante</h4>
 
     <hr>
 
-    <h5>Sobre el restaurante</h5>
-    <figure>
-        <img src="{{restaurantInfo.image}}" alt="Restaurant image">
-    </figure>
 
-    <p><strong>Tipo</strong>: {{restaurantInfo.cuisine}}</p>
 
+    <div class="row">
+        <div class="col-4">
+            <figure>
+                <img class="detail-image" src="{{restaurantInfo.image}}" alt="Restaurant image">
+            </figure>
+        </div>
+        <div class="col-8">
+            <h5>Sobre el restaurante</h5>
+            <p>{{restaurantInfo.description}}</p>
+            <p><strong>Tipo</strong>: {{restaurantInfo.cuisine}}</p>
+        </div>
     <a href="/" class="btn btn-dark">Volver</a>
+    </div>
 
 </div>

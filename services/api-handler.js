@@ -8,8 +8,8 @@ class SpoonacularApp {
         })
     }
     randomRecipes = () => this.api.get(`/random?apiKey=${this.apiKey}`)
-    searchRecipesByCuisine = (cuisine) => this.api.get(`/complexSearch?apiKey=${this.apiKey}&cuisine=${cuisine}`)
-    searchRecipesByType = (type) => this.api.get(`/complexSearch?apiKey=${this.apiKey}&type=${type}`)
+    searchRecipesByCuisine = (cuisine) => this.api.get(`/complexSearch?apiKey=${this.apiKey}&cuisine=${cuisine}&number=30`)
+    searchRecipesByType = (type) => this.api.get(`/complexSearch?apiKey=${this.apiKey}&type=${type}&number=30`)
     recipeInformation = (id) => this.api.get(`/${id}/analyzedInstructions?apiKey=${this.apiKey}`)
 }
 new SpoonacularApp()

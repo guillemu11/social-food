@@ -1,20 +1,15 @@
 <div class="container">
-
     <div class="row">
         {{#each data.results}}
         <div class="col-3">
-
             <div class="container card" style="width: 18rem;">
                 <img src="{{image}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{title}}</h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="/api/recetas?id={{id}}&title={{title}}" class="btn btn-primary">Mirar detalles</a>
                 </div>
             </div>
-
         </div>
         {{/each}}
-
     </div>
-
 </div>

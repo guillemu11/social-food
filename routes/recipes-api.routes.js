@@ -10,22 +10,22 @@ router.get('/random', (req, res) => {
     RecipeApi
         .randomRecipes()
         .then(response => {
-            const {data} = response
-           res.render('pages/perfil/random-recipe', data)
-             })
+            const { data } = response
+            res.render('pages/perfil/random-recipe', data)
+        })
         .catch(err => console.log('error', err))
 })
 
-router.get('/buscar', (req, res) =>{
-    
-    const { cuisine } =  req.query
+router.get('/buscar', (req, res) => {
+
+    const { cuisine } = req.query
 
     RecipeApi
         .searchRecipesByCuisine(cuisine)
-        .then(response =>{
+        .then(response => {
             const { data } = response
-            res.render('pages/api-recipes/search-recipes', {data})
-            
+            res.render('pages/api-recipes/search-recipes', { data })
+
         })
         .catch(err => console.log('error', err))
 })
@@ -37,11 +37,11 @@ router.get('/tipos', (req, res) => {
     const { type } = req.query
 
     RecipeApi
-        .searchRecipesByType( type )
+        .searchRecipesByType(type)
         .then(response => {
             const { data } = response
-            res.render('pages/api-recipes/search-type',  {data} )
-            
+            res.render('pages/api-recipes/search-type', { data })
+
         })
         .catch(err => console.log('error!', err))
 })
@@ -51,11 +51,12 @@ router.get('/', (req, res) => {
     const { id, title } = req.query
 
     RecipeApi
-        .recipeInformation( id )
-        .then( apiInfo => {
-            res.render('pages/api-recipes/recipe-info', {apiInfo: apiInfo.data, title})
+        .recipeInformation(id)
+        .then(apiInfo => {
+            console.log({ apiInfo: apiInfo.data, title })
+            res.render('pages/api-recipes/recipe-info', { apiInfo: apiInfo.data, title })
             console.log('-------Api Infoooooo', apiInfo.data[0].steps[0])
-            })
+        })
         .catch(err => console.log('error', err))
 })
 
