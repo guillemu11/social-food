@@ -53,8 +53,8 @@ router.get('/', (req, res) => {
     RecipeApi
         .recipeInformation( id )
         .then( apiInfo => {
-            console.log('-------Api Infoooooo',apiInfo.data[0].steps[0])
             res.render('pages/api-recipes/recipe-info', {apiInfo: apiInfo.data, title})
+            console.log('-------Api Infoooooo', apiInfo.data[0].steps[0])
             })
         .catch(err => console.log('error', err))
 })

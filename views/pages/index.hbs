@@ -67,45 +67,94 @@
     </div>
 </section>
 
-<section class="container">
-    <div class="row">
-        <div class="col-6">
+<div class="container">
+    <h1>NUESTROS USUARIOS OPINAN</h1>
+    <hr>
+    <div class="card" style="border-style: none;">
+        <div class="row">
             {{#each allRestaurants}}
-            <a href="/publicacion/perfil/{{author._id}}">
-                <h1>{{author.username}}</h1>
-            </a>
-            <h2>{{name}}</h2>
-            <a href="/restaurante/details/{{id}}">
-                <figure>
-                    <img src="{{image}}" alt="restaurants photo">
-                </figure>
-            </a>
-            <p><strong>Descripción: </strong>{{description}}</p>
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/restaurante/details/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <li class="list-group-item author"><a href="/publicacion/perfil/{{author._id}}">
+                            <h1>{{author.username}}</h1>
+                        </a></li>
+
+                    <a class=" btn btn-secondar" href="/restaurante/details/{{id}}">
+                        <li>detalles</li>
+                    </a>
+                </ul>
+
+            </div>
             {{/each}}
+
         </div>
+
     </div>
-    <div class="col-6">
-        {{#each allRecipes}}
-        <a href="/publicacion/perfil/{{author._id}}">
-            <h1>{{author.username}}</h1>
-        </a>
-        <h2>{{name}}</h2>
-        <a href="/recetas/detalles/{{id}}">
-            <figure>
-                <img src="{{image}}" alt="restaurants photo">
-            </figure>
-        </a>
-        <p>{{description}}</p>
-        <p>{{ingredients}}</p>
-        <p><strong>Descripción: </strong>{{description}}</p>
+
+
+<hr>
+
+
+<div class="container">
+    <h1>NUESTROS USUARIOS OPINAN</h1>
+    <hr>
+    <div class="card" style="border-style: none;">
+        <div class="row">
+            {{#each allRecipes}}
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/restaurante/details/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <li class="list-group-item"><a href="/publicacion/perfil/{{author._id}}">
+                            <h1>{{author.username}}</h1>
+                        </a></li>
+
+                    <a class=" btn btn-secondar" href="/recetas/detalles/{{id}}">
+                        <li>detalles</li>
+                    </a>
+                </ul>
+
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+<figure id="restarants-map"></figure>
+<section id="route">
+    <div class="container">
+        {{#each allRestaurants}}
+        <h3>Nombre del restaurante: {{name}}</h3>
+        <p>ubicacion {{ubication}} </p>
+        <hr>
         {{/each}}
     </div>
-    </div>
-
-    </div>
-
-
 </section>
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
@@ -114,3 +163,6 @@
 </script>
 <script src="/services/api-handler.js"></script>
 <script src="https://api.spoonacular.com/recipes/complexSearch?apiKey=54362f27bf61476e95d0f5988211fbfd"></script>
+<script src="/js/mapstyles.js"></script>
+<script src="/js/map-restaurants-app.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bMJakHxHvW_U33axYwTUL7ccGZMpUUk&callback=initMap"></script>

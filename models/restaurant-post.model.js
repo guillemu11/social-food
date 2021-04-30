@@ -6,6 +6,7 @@ const restaurantPostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    ubication: String,
     location: {
         type: {
             type: String
@@ -14,11 +15,13 @@ const restaurantPostSchema = new Schema({
     },
     name: String,
     description: String,
-    cuisine: String, //añadir enum
+    cuisine: String, 
     image: String
 }, {
     timestamps: true
 })
+
+restaurantPostSchema.index({ location: '2dsphere' })        
 
 const Restaurant = mongoose.model("Restaurant", restaurantPostSchema)
 
