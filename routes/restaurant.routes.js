@@ -23,8 +23,7 @@ router.post('/crear', CDNupload.single('image'), (req, res) => {
 
     Restaurant
         .create({ author, location, name, description, cuisine, image, ubication })
-        .then(response => {
-            res.send(response)
+        .then(()=> {
             res.redirect('/')
         })
         .catch(err => console.log('errrrroorrr', err))

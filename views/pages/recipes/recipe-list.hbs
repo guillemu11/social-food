@@ -1,14 +1,28 @@
-<div>
-    {{#each theRecipes}}
-    <a href="/publicacion/perfil/{{author._id}}">
-        <h1>{{author.username}}</h1>
-    </a>
-    <h2>{{name}}</h2>
-    <a href="/recetas/detalles/{{id}}">
-        <figure>
-            <img src="{{image}}" alt="restaurants photo">
-        </figure>
-    </a>
-    <p><strong>Descripción: </strong>{{description}}</p>
-    {{/each}}
-</div>
+<div class="container">
+    <h1>NUESTROS USUARIOS OPINAN</h1>
+    <hr>
+    <div class="card" style="border-style: none;">
+        <div class="row">
+            {{#each theRecipes}}
+            <div class="col-3">
+                <div class="card-header">
+                    <a href="/recetas/detalles/{{id}}">
+                        <figure>
+                            <img src="{{image}}" alt="restaurants photo">
+                        </figure>
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{name}}</li>
+                    <li class="list-group-item">{{description}}</li>
+                    <a class=" btn btn-secondar" href="/restaurante/details/{{id}}">
+                        <li>detalles</li>
+                    </a>
+                </ul>
+
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>

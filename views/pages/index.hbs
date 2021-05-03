@@ -17,28 +17,34 @@
 <section class="container index">
     <div class="row index-img">
         <div class="col-3 wings-img">
-            <a href="/recetas/lista"><img class="" src="/img/food-community-4.png" alt=""></a>
-            <a href="/recetas/lista"><img class="bottom-img" src="/img/food-community-1.png" alt=""></a>
+            <a href="/api/recetas/buscar"><img class="" src="/img/food-community-4.png" alt=""></a>
+            <a href="/api/recetas/random"><img class="bottom-img" src="/img/food-community-1.png" alt=""></a>
         </div>
         <div>
 
         </div>
         <div class="col-6 ">
-            <div class="restaurant-img">
+            <div class="">
                 <a href="/restaurante/lista"><img class="big-img" src="/img/restaurante.png" alt=""></a>
+
+            </div>
+            <div class="small-center-img">
+
+                <a href="/recetas/lista"><img class="small-img alitas" src="/img/alitas.png" alt=""></a>
             </div>
         </div>
         <div class="col-3 wings-img">
-            <a href="/recetas/lista"><img class="" src="/img/food-community-2.png" alt=""></a>
+            <a href="/registro"><img class="" src="/img/food-community-2.png" alt=""></a>
             <div>
-                <a href="/recetas/lista"><img class="bottom-img" src="/img/food-community-3.png" alt=""></a>
+
+                <a href="#"><img class="bottom-img" src="/img/food-community-3.png" alt=""></a>
             </div>
+
         </div>
     </div>
+
 </section>
-
 <hr>
-
 <section class="container">
     <div class="container justify-content-between box2">
         <header class="title">
@@ -63,12 +69,13 @@
                 </a>
             </div>
         </div>
+
     </div>
 </section>
 
 <div class="container post-sections">
-    <div class="img-recetas">
-         <img src="/img/recetas.png"  alt="">
+    <div class="">
+         <img src="/img/restaurantes.png"  alt="">
     </div>
     <hr>
     <div class="card" style="border-style: none;">
@@ -96,9 +103,12 @@
                         <li>detalles</li>
                     </a>
                 </ul>
+
             </div>
             {{/each}}
+
         </div>
+
     </div>
 
 
@@ -106,7 +116,9 @@
 
 
 <div class="container post-sections">
-    <img src="/img/restaurantes.png" alt="">
+    <div class="img-recetas"></div>
+        <img src="/img/recetas.png" alt="">
+    </div>
     <hr>
     <div class="card" style="border-style: none;">
         <div class="row">
@@ -144,35 +156,19 @@
 
 
 
+
+
+<figure id="restarants-map"></figure>
+<section id="route">
     <div class="container">
-        <h1>NUESTROS USUARIOS OPINAN</h1>
+        {{#each allRestaurants}}
+        <h3>Nombre del restaurante: {{name}}</h3>
+        <p>ubicacion {{ubication}} </p>
         <hr>
-        <div class="card" style="border-style: none;">
-            <div class="row">
-                {{#each allRecipes}}
-                <div class="col-3">
-                    <div class="card-header">
-                        <a href="/restaurante/details/{{id}}">
-                            <figure>
-                                <img src="{{image}}" alt="restaurants photo">
-                            </figure>
-                        </a>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{name}}</li>
-                        <li class="list-group-item">{{description}}</li>
-                        <li class="list-group-item"><a href="/publicacion/perfil/{{author._id}}">
-                                <h1>{{author.username}}</h1>
-                            </a></li>
-                        <a class=" btn btn-secondar" href="/recetas/detalles/{{id}}">
-                            <li>detalles</li>
-                        </a>
-                    </ul>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+        {{/each}}
     </div>
+</section>
+
 
 
 
